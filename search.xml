@@ -1,16 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2020/04/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="第一篇"><a href="#第一篇" class="headerlink" title="第一篇"></a>第一篇</h2><hr>
-<h2 id="第二篇"><a href="#第二篇" class="headerlink" title="第二篇"></a>第二篇</h2><hr>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>]]></content>
+    <title>Stream API</title>
+    <url>/2020/05/04/Stream%20API/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>Stream API 是用来处理数据，处理集合等容器中的数据，处理操作有：查询、筛选、删除、过滤、统计、映射等。</strong><br><strong>希望能够用类似于SQL语法的形式对Java内存中的数据进行处理。（SQL是对数据库中的数据进行处理）</strong></p>
+</blockquote>
+<a id="more"></a>
+<blockquote>
+<p><strong>Stream本身不负责储存数据，储存数据是用集合、数组等数据结构。</strong><br><strong>Stream只负责对数据进行加工、处理。</strong> </p>
+</blockquote>
+<h2 id="Stream的特点"><a href="#Stream的特点" class="headerlink" title="Stream的特点"></a>Stream的特点</h2><blockquote>
+<ol>
+<li>Stream本身不负责储存数据，储存数据是用集合、数组等数据结构。</li>
+<li>Stream是不可变的，一旦修改，就会产生新的Stream对象。</li>
+<li>Stream操作是一个延迟操作，所有的操作都必须延迟到终结操作时一起处理。</li>
+</ol>
+</blockquote>
+<h2 id="Stream的操作分为三步"><a href="#Stream的操作分为三步" class="headerlink" title="Stream的操作分为三步"></a>Stream的操作分为三步</h2><blockquote>
+<ol>
+<li>创建Stream：告知Stream数据的来源是哪里？</li>
+<li>加工处理：这个过程可以有多步 （0~n）</li>
+<li>终结操作：收集结果（一旦终结就不能再加工了，如果要加工需重新创建Stream）</li>
+</ol>
+</blockquote>
+<h2 id="Stream接口"><a href="#Stream接口" class="headerlink" title="Stream接口"></a>Stream接口</h2><blockquote>
+<p>实现类</p>
+<ol>
+<li>IntStream</li>
+<li>DoubleStream</li>
+<li>LongStream</li>
+</ol>
+</blockquote>
+<h3 id="一、创建Stream"><a href="#一、创建Stream" class="headerlink" title="一、创建Stream"></a>一、创建Stream</h3><ol>
+<li>通过集合创建：集合对象.stream</li>
+<li>通过数组工具类Arrays：Arrays.stream(数组对象)</li>
+<li>Stream接口的静态方法（of方法），产生一个有限流：<br> Stream.of(···)：<code>Stream.of(1,2,3,4,5,6)</code></li>
+<li>Stream接口的静态方法（generate方法），产生一个无限流：<br> (1)Stream.generate(Lambda表达式)：<code>Stream.generate(Math::random)</code><br> (2)Stream.iterate(起始条件， Lambda表达式)：<code>Stream.iterate(1, num -&gt; num += 2)</code></li>
+</ol>
+<h3 id="二、中间加工操作"><a href="#二、中间加工操作" class="headerlink" title="二、中间加工操作"></a>二、中间加工操作</h3><ol>
+<li>filter(Lambda表达式)：过滤（lambda为过滤条件）</li>
+<li>distinct()：去重</li>
+<li>limit(long maxSize)：取有限的几个</li>
+<li>skip (long n)：跳过n个</li>
+<li>peek(Lambda表达式)：接收lambda表达式，对流中的每一个数据进行Lambda体操作</li>
+<li>sorted()：排序，按照自然排序<br> sorted(Comparator com)：排序，按照定制排序</li>
+<li>map(Function f)：接收lambda表达式，对流中的每一个数据进行Lambda体操作，返回新的数据构成新的流<br> flatMap(Function f) <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String[] arr = &#123;<span class="string">"hello"</span>, <span class="string">"world"</span>, <span class="string">"java"</span>&#125;;</span><br><span class="line">Stream&lt;String&gt; flatMap = Arrays.Stream(arr).flatMap(t -&gt; Stream.of(t.split(<span class="string">"|"</span>)));</span><br><span class="line">flatMap.forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="三、终结操作"><a href="#三、终结操作" class="headerlink" title="三、终结操作"></a>三、终结操作</h3><ol>
+<li>void forEach()：遍历流中的数据</li>
+<li>long count()：统计个数</li>
+<li>boolean allMatch(Predicate p)：是否全部满足<strong>条件<br> boolean anyMatch(Predicate p)：是否有一个满足</strong>条件<br> boolean noneMatch(Predicate p)：是否全部都不满足**条件</li>
+<li>Optional<T> findFirst()：返回第一个<br> Optional<T> findAny()：返回任意一个</li>
+<li>Optional<T> max(Comparator c)：找出最大的<br> Optional<T> min(Comparator c)：找出最小的</li>
+<li>T reduce(T iden, BinaryOperator b)：通过反复运算，留下最后一个结果<br> Optional<T> reduce(BinaryOperator b)：通过反复运算，留下最后一个结果</li>
+<li>R collect(Collector c)：把流中的数据最后都收集到一起（Collector接口） <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; list = Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>).filter(t -&gt; t % <span class="number">2</span> == <span class="number">0</span>).collect(Collectors.toList());</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Java API</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
     <url>/2020/04/29/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+    <content><![CDATA[<a id="more"></a>
+<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
