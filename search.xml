@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git</title>
+    <url>/2020/05/12/Git/</url>
+    <content><![CDATA[<h2 id="Git的基本操作"><a href="#Git的基本操作" class="headerlink" title="Git的基本操作"></a>Git的基本操作</h2><a id="more"></a>
+
+<h3 id="1-创建版本库"><a href="#1-创建版本库" class="headerlink" title="1.创建版本库"></a>1.创建版本库</h3><ul>
+<li><code>git init</code></li>
+</ul>
+<h3 id="2-新建文件"><a href="#2-新建文件" class="headerlink" title="2.新建文件"></a>2.新建文件</h3><ul>
+<li><code>vim 文件名.文件类型</code>：新建文件并进入文件（例：<code>git first.txt</code>）</li>
+<li><code>alt</code>+<code>i</code>：进入文件编辑模式</li>
+<li><code>esc</code>+<code>:wq</code>：退出编辑模式并保存文件</li>
+</ul>
+<h3 id="3-提交文件"><a href="#3-提交文件" class="headerlink" title="3.提交文件"></a>3.提交文件</h3><ul>
+<li><code>git status</code>：查看文件状态</li>
+<li><code>git add 文件名</code>：将文件添加到暂存区</li>
+<li><code>git commit -m &quot;注释内容&quot;</code>：提交文件到本地库（带注释）</li>
+</ul>
+<h3 id="4-查看文件提交记录"><a href="#4-查看文件提交记录" class="headerlink" title="4.查看文件提交记录"></a>4.查看文件提交记录</h3><ul>
+<li><code>git log 文件名</code>：查看历史记录</li>
+<li><code>git log --pretty=oneline 文件名</code>：简易信息查看</li>
+</ul>
+<h3 id="5-回退历史"><a href="#5-回退历史" class="headerlink" title="5.回退历史"></a>5.回退历史</h3><ul>
+<li><code>git reset --hard HEAD^</code>：回退到上次提交</li>
+<li><code>git reset --hard HEAD~n</code>：回退n次操作</li>
+</ul>
+<h3 id="6-版本穿越"><a href="#6-版本穿越" class="headerlink" title="6.版本穿越"></a>6.版本穿越</h3><ul>
+<li><code>git reflog 文件名</code>：查看历史记录的版本号</li>
+<li><code>git reset --hard 版本号</code>：执行操作</li>
+</ul>
+<h3 id="7-还原文件"><a href="#7-还原文件" class="headerlink" title="7.还原文件"></a>7.还原文件</h3><ul>
+<li><code>git checkout -- 文件名</code>：还原文件</li>
+</ul>
+<h3 id="8-删除某个文件"><a href="#8-删除某个文件" class="headerlink" title="8.删除某个文件"></a>8.删除某个文件</h3><ul>
+<li><code>rm -rf 文件名</code>：删除文件（此时未真正删除）</li>
+<li><code>git add 文件名</code>：提交</li>
+<li><code>git commit -m &quot;注释内容&quot;</code></li>
+</ul>
+<h2 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h2><h3 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1.创建分支"></a>1.创建分支</h3><ul>
+<li><code>git branch 分支名</code>：创建分支</li>
+<li><code>git branch -v</code>：查看分支</li>
+</ul>
+<h3 id="2-切换分支"><a href="#2-切换分支" class="headerlink" title="2.切换分支"></a>2.切换分支</h3><ul>
+<li><code>git checkout 分支名</code>：切换分支</li>
+<li><code>git checkout -b 分支名</code>：一步完成创建并切换分支</li>
+</ul>
+<h3 id="3-合并分支"><a href="#3-合并分支" class="headerlink" title="3.合并分支"></a>3.合并分支</h3><ul>
+<li><code>git checkout master</code>：先切换到主分支</li>
+<li><code>git merge 副分支名</code>：合并分支</li>
+</ul>
+<h3 id="4-删除分支"><a href="#4-删除分支" class="headerlink" title="4.删除分支"></a>4.删除分支</h3><ul>
+<li><code>git checkout master</code>：先切换到主分支</li>
+<li><code>git branch -D 分支名</code>：删除副分支</li>
+</ul>
+<h3 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h3><ul>
+<li><code>git diff</code>：找到发生冲突的文件及冲突的内容</li>
+<li><code>git add 文件名</code>+<code>git commit -m &quot;注释内容&quot;</code>：修改冲突文件内容后提交（后缀MERGING消失，说明冲突解决）</li>
+</ul>
+<h2 id="远程Git操作"><a href="#远程Git操作" class="headerlink" title="远程Git操作"></a>远程Git操作</h2><h3 id="1-搭建代码库"><a href="#1-搭建代码库" class="headerlink" title="1.搭建代码库"></a>1.搭建代码库</h3><p>(1) <code>git init</code><br>(2) <code>git config</code></p>
+<h3 id="2-提交代码"><a href="#2-提交代码" class="headerlink" title="2.提交代码"></a>2.提交代码</h3><p>(1) <code>git add 文件名</code><br>(2) <code>git commit -m &quot;注释内容&quot;</code></p>
+<h3 id="3-GitHub准备工作"><a href="#3-GitHub准备工作" class="headerlink" title="3.GitHub准备工作"></a>3.GitHub准备工作</h3><p>(1)  准备GitHub账号<br>(2)  在GitHub搭建项目</p>
+<h3 id="4-推送代码到远端"><a href="#4-推送代码到远端" class="headerlink" title="4.推送代码到远端"></a>4.推送代码到远端</h3><p>(1) <code>git remote add origin &lt;url&gt;</code><br>(2) <code>git push origin master</code></p>
+<h3 id="5-远端操作"><a href="#5-远端操作" class="headerlink" title="5.远端操作"></a>5.远端操作</h3><p>(1) <code>git clone &lt;url&gt;</code>：克隆到远端本地库<br>(2) <code>git add 文件名</code><br>(3) <code>git commit -m &quot;注释内容&quot;</code><br>(4) <code>git push origin master</code></p>
+<h3 id="6-本地拉取远端提出的修改请求"><a href="#6-本地拉取远端提出的修改请求" class="headerlink" title="6.本地拉取远端提出的修改请求"></a>6.本地拉取远端提出的修改请求</h3><p>(1) <code>git pull</code>：拉取远端代码<br>(2)  查看并判断是否通过该请求</p>
+<h3 id="7-协作冲突"><a href="#7-协作冲突" class="headerlink" title="7.协作冲突"></a>7.协作冲突</h3><p>(1) <code>git pull</code>：拉取远端文件<br>(2)  修改合并<br>(3) <code>git add</code><br>(4) <code>git commit -m &quot;注释内容&quot;</code></p>
+<h2 id="GitFlow工作流"><a href="#GitFlow工作流" class="headerlink" title="GitFlow工作流"></a>GitFlow工作流</h2><ul>
+<li>master ：主干分支</li>
+<li>develop ：开发分支</li>
+<li>hotfix ：bug修理分支</li>
+<li>release ：发布版本分支</li>
+<li>feature ：功能分支</li>
+</ul>
+<p><img src="/img/Git_01.png" alt=""></p>
+<hr>
+<h2 id="Git图谱"><a href="#Git图谱" class="headerlink" title="Git图谱"></a>Git图谱</h2><p><img src="/img/Git_02.png" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Stream API</title>
     <url>/2020/05/04/Stream%20API/</url>
     <content><![CDATA[<h2 id="Stream简介"><a href="#Stream简介" class="headerlink" title="Stream简介"></a>Stream简介</h2><blockquote>
@@ -66,82 +143,5 @@
       <tags>
         <tag>Java</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Git</title>
-    <url>/2020/05/12/Git/</url>
-    <content><![CDATA[<h2 id="Git的基本操作"><a href="#Git的基本操作" class="headerlink" title="Git的基本操作"></a>Git的基本操作</h2><a id="more"></a>
-
-<h3 id="1-创建版本库"><a href="#1-创建版本库" class="headerlink" title="1.创建版本库"></a>1.创建版本库</h3><ul>
-<li><code>git init</code></li>
-</ul>
-<h3 id="2-新建文件"><a href="#2-新建文件" class="headerlink" title="2.新建文件"></a>2.新建文件</h3><ul>
-<li><code>vim 文件名.文件类型</code>：新建文件并进入文件（例：<code>git first.txt</code>）</li>
-<li><code>alt</code>+<code>i</code>：进入文件编辑模式</li>
-<li><code>esc</code>+<code>:wq</code>：退出编辑模式并保存文件</li>
-</ul>
-<h3 id="3-提交文件"><a href="#3-提交文件" class="headerlink" title="3.提交文件"></a>3.提交文件</h3><ul>
-<li><code>git status</code>：查看文件状态</li>
-<li><code>git add 文件名</code>：将文件添加到暂存区</li>
-<li><code>git commit -m &quot;注释内容&quot;</code>：提交文件到本地库（带注释）</li>
-</ul>
-<h3 id="4-查看文件提交记录"><a href="#4-查看文件提交记录" class="headerlink" title="4.查看文件提交记录"></a>4.查看文件提交记录</h3><ul>
-<li><code>git log 文件名</code>：查看历史记录</li>
-<li><code>git log --pretty=oneline 文件名</code>：简易信息查看</li>
-</ul>
-<h3 id="5-回退历史"><a href="#5-回退历史" class="headerlink" title="5.回退历史"></a>5.回退历史</h3><ul>
-<li><code>git reset --hard HEAD^</code>：回退到上次提交</li>
-<li><code>git reset --hard HEAD~n</code>：回退n次操作</li>
-</ul>
-<h3 id="6-版本穿越"><a href="#6-版本穿越" class="headerlink" title="6.版本穿越"></a>6.版本穿越</h3><ul>
-<li><code>git reflog 文件名</code>：查看历史记录的版本号</li>
-<li><code>git reset --hard 版本号</code>：执行操作</li>
-</ul>
-<h3 id="7-还原文件"><a href="#7-还原文件" class="headerlink" title="7.还原文件"></a>7.还原文件</h3><ul>
-<li><code>git checkout --文件名</code>：还原文件</li>
-</ul>
-<h3 id="8-删除某个文件"><a href="#8-删除某个文件" class="headerlink" title="8.删除某个文件"></a>8.删除某个文件</h3><ul>
-<li><code>rm -rf 文件名</code>：删除文件（此时未真正删除）</li>
-<li><code>git add 文件名</code>：提交</li>
-<li><code>git commit -m &quot;注释内容&quot;</code></li>
-</ul>
-<h2 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h2><h3 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1.创建分支"></a>1.创建分支</h3><ul>
-<li><code>git branch 分支名</code>：创建分支</li>
-<li><code>git branch -v</code>：查看分支</li>
-</ul>
-<h3 id="2-切换分支"><a href="#2-切换分支" class="headerlink" title="2.切换分支"></a>2.切换分支</h3><ul>
-<li><code>git checkout 分支名</code>：切换分支</li>
-<li><code>git checkout -b 分支名</code>：一步完成创建并切换分支</li>
-</ul>
-<h3 id="3-合并分支"><a href="#3-合并分支" class="headerlink" title="3.合并分支"></a>3.合并分支</h3><ul>
-<li><code>git checkout master</code>：先切换到主分支</li>
-<li><code>git merge 副分支名</code>：合并分支</li>
-</ul>
-<h3 id="4-删除分支"><a href="#4-删除分支" class="headerlink" title="4.删除分支"></a>4.删除分支</h3><ul>
-<li><code>git checkout master</code>：先切换到主分支</li>
-<li><code>git branch -D 分支名</code>：删除副分支</li>
-</ul>
-<h3 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h3><ul>
-<li><code>git diff</code>：找到发生冲突的文件及冲突的内容</li>
-<li><code>git add 文件名</code>+<code>git commit -m &quot;注释内容&quot;</code>：修改冲突文件内容后提交（后缀MERGING消失，说明冲突解决）</li>
-</ul>
-<h2 id="远程Git操作"><a href="#远程Git操作" class="headerlink" title="远程Git操作"></a>远程Git操作</h2><h3 id="1-搭建代码库"><a href="#1-搭建代码库" class="headerlink" title="1.搭建代码库"></a>1.搭建代码库</h3><p>(1) <code>git init</code><br>(2) <code>git config</code></p>
-<h3 id="2-提交代码"><a href="#2-提交代码" class="headerlink" title="2.提交代码"></a>2.提交代码</h3><p>(1) <code>git add 文件名</code><br>(2) <code>git commit -m &quot;注释内容&quot;</code></p>
-<h3 id="3-GitHub准备工作"><a href="#3-GitHub准备工作" class="headerlink" title="3.GitHub准备工作"></a>3.GitHub准备工作</h3><p>(1)  准备GitHub账号<br>(2)  在GitHub搭建项目</p>
-<h3 id="4-推送代码到远端"><a href="#4-推送代码到远端" class="headerlink" title="4.推送代码到远端"></a>4.推送代码到远端</h3><p>(1) <code>git remote add origin &lt;url&gt;</code><br>(2) <code>git push origin master</code></p>
-<h3 id="5-远端操作"><a href="#5-远端操作" class="headerlink" title="5.远端操作"></a>5.远端操作</h3><p>(1) <code>git clone &lt;url&gt;</code>：克隆到远端本地库<br>(2) <code>git add 文件名</code><br>(3) <code>git commit -m &quot;注释内容&quot;</code><br>(4) <code>git push origin master</code></p>
-<h3 id="6-本地拉取远端提出的修改请求"><a href="#6-本地拉取远端提出的修改请求" class="headerlink" title="6.本地拉取远端提出的修改请求"></a>6.本地拉取远端提出的修改请求</h3><p>(1) <code>git pull</code>：拉取远端代码<br>(2)  查看并判断是否通过该请求</p>
-<h3 id="7-协作冲突"><a href="#7-协作冲突" class="headerlink" title="7.协作冲突"></a>7.协作冲突</h3><p>(1) <code>git pull</code>：拉取远端文件<br>(2)  修改合并<br>(3) <code>git add</code><br>(4) <code>git commit -m &quot;注释内容&quot;</code></p>
-<h2 id="GitFlow工作流"><a href="#GitFlow工作流" class="headerlink" title="GitFlow工作流"></a>GitFlow工作流</h2><ul>
-<li>master ：主干分支</li>
-<li>develop ：开发分支</li>
-<li>hotfix ：bug修理分支</li>
-<li>release ：发布版本分支</li>
-<li>feature ：功能分支</li>
-</ul>
-<p><img src="/img/Git_01.png" alt=""></p>
-<hr>
-<h2 id="Git图谱"><a href="#Git图谱" class="headerlink" title="Git图谱"></a>Git图谱</h2><p><img src="/img/Git_02.png" alt=""></p>
-]]></content>
   </entry>
 </search>
