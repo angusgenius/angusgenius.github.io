@@ -9,7 +9,7 @@
 <li><code>git init</code></li>
 </ul>
 <h3 id="2-新建文件"><a href="#2-新建文件" class="headerlink" title="2.新建文件"></a>2.新建文件</h3><ul>
-<li><code>vim 文件名.文件类型</code>：新建文件并进入文件（例：<code>git first.txt</code>）</li>
+<li><code>vim 文件名.文件类型</code>：新建文件并进入文件（例：<code>vim first.txt</code>）</li>
 <li><code>alt</code>+<code>i</code>：进入文件编辑模式</li>
 <li><code>esc</code>+<code>:wq</code>：退出编辑模式并保存文件</li>
 </ul>
