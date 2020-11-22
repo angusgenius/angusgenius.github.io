@@ -1,147 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Git</title>
-    <url>/2020/05/12/Git/</url>
-    <content><![CDATA[<h2 id="Git的基本操作"><a href="#Git的基本操作" class="headerlink" title="Git的基本操作"></a>Git的基本操作</h2><a id="more"></a>
-
-<h3 id="1-创建版本库"><a href="#1-创建版本库" class="headerlink" title="1.创建版本库"></a>1.创建版本库</h3><ul>
-<li><code>git init</code></li>
-</ul>
-<h3 id="2-新建文件"><a href="#2-新建文件" class="headerlink" title="2.新建文件"></a>2.新建文件</h3><ul>
-<li><code>vim 文件名.文件类型</code>：新建文件并进入文件（例：<code>vim first.txt</code>）</li>
-<li><code>alt</code>+<code>i</code>：进入文件编辑模式</li>
-<li><code>esc</code>+<code>:wq</code>：退出编辑模式并保存文件</li>
-</ul>
-<h3 id="3-提交文件"><a href="#3-提交文件" class="headerlink" title="3.提交文件"></a>3.提交文件</h3><ul>
-<li><code>git status</code>：查看文件状态</li>
-<li><code>git add 文件名</code>：将文件添加到暂存区</li>
-<li><code>git commit -m &quot;注释内容&quot;</code>：提交文件到本地库（带注释）</li>
-</ul>
-<h3 id="4-查看文件提交记录"><a href="#4-查看文件提交记录" class="headerlink" title="4.查看文件提交记录"></a>4.查看文件提交记录</h3><ul>
-<li><code>git log 文件名</code>：查看历史记录</li>
-<li><code>git log --pretty=oneline 文件名</code>：简易信息查看</li>
-</ul>
-<h3 id="5-回退历史"><a href="#5-回退历史" class="headerlink" title="5.回退历史"></a>5.回退历史</h3><ul>
-<li><code>git reset --hard HEAD^</code>：回退到上次提交</li>
-<li><code>git reset --hard HEAD~n</code>：回退n次操作</li>
-</ul>
-<h3 id="6-版本穿越"><a href="#6-版本穿越" class="headerlink" title="6.版本穿越"></a>6.版本穿越</h3><ul>
-<li><code>git reflog 文件名</code>：查看历史记录的版本号</li>
-<li><code>git reset --hard 版本号</code>：执行操作</li>
-</ul>
-<h3 id="7-还原文件"><a href="#7-还原文件" class="headerlink" title="7.还原文件"></a>7.还原文件</h3><ul>
-<li><code>git checkout -- 文件名</code>：还原文件</li>
-</ul>
-<h3 id="8-删除某个文件"><a href="#8-删除某个文件" class="headerlink" title="8.删除某个文件"></a>8.删除某个文件</h3><ul>
-<li><code>rm -rf 文件名</code>：删除文件（此时未真正删除）</li>
-<li><code>git add 文件名</code>：提交</li>
-<li><code>git commit -m &quot;注释内容&quot;</code></li>
-</ul>
-<h2 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h2><h3 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1.创建分支"></a>1.创建分支</h3><ul>
-<li><code>git branch 分支名</code>：创建分支</li>
-<li><code>git branch -v</code>：查看分支</li>
-</ul>
-<h3 id="2-切换分支"><a href="#2-切换分支" class="headerlink" title="2.切换分支"></a>2.切换分支</h3><ul>
-<li><code>git checkout 分支名</code>：切换分支</li>
-<li><code>git checkout -b 分支名</code>：一步完成创建并切换分支</li>
-</ul>
-<h3 id="3-合并分支"><a href="#3-合并分支" class="headerlink" title="3.合并分支"></a>3.合并分支</h3><ul>
-<li><code>git checkout master</code>：先切换到主分支</li>
-<li><code>git merge 副分支名</code>：合并分支</li>
-</ul>
-<h3 id="4-删除分支"><a href="#4-删除分支" class="headerlink" title="4.删除分支"></a>4.删除分支</h3><ul>
-<li><code>git checkout master</code>：先切换到主分支</li>
-<li><code>git branch -D 分支名</code>：删除副分支</li>
-</ul>
-<h3 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h3><ul>
-<li><code>git diff</code>：找到发生冲突的文件及冲突的内容</li>
-<li><code>git add 文件名</code>+<code>git commit -m &quot;注释内容&quot;</code>：修改冲突文件内容后提交（后缀MERGING消失，说明冲突解决）</li>
-</ul>
-<h2 id="远程Git操作"><a href="#远程Git操作" class="headerlink" title="远程Git操作"></a>远程Git操作</h2><h3 id="1-搭建代码库"><a href="#1-搭建代码库" class="headerlink" title="1.搭建代码库"></a>1.搭建代码库</h3><p>(1) <code>git init</code><br>(2) <code>git config</code></p>
-<h3 id="2-提交代码"><a href="#2-提交代码" class="headerlink" title="2.提交代码"></a>2.提交代码</h3><p>(1) <code>git add 文件名</code><br>(2) <code>git commit -m &quot;注释内容&quot;</code></p>
-<h3 id="3-GitHub准备工作"><a href="#3-GitHub准备工作" class="headerlink" title="3.GitHub准备工作"></a>3.GitHub准备工作</h3><p>(1)  准备GitHub账号<br>(2)  在GitHub搭建项目</p>
-<h3 id="4-推送代码到远端"><a href="#4-推送代码到远端" class="headerlink" title="4.推送代码到远端"></a>4.推送代码到远端</h3><p>(1) <code>git remote add origin &lt;url&gt;</code><br>(2) <code>git push origin master</code></p>
-<h3 id="5-远端操作"><a href="#5-远端操作" class="headerlink" title="5.远端操作"></a>5.远端操作</h3><p>(1) <code>git clone &lt;url&gt;</code>：克隆到远端本地库<br>(2) <code>git add 文件名</code><br>(3) <code>git commit -m &quot;注释内容&quot;</code><br>(4) <code>git push origin master</code></p>
-<h3 id="6-本地拉取远端提出的修改请求"><a href="#6-本地拉取远端提出的修改请求" class="headerlink" title="6.本地拉取远端提出的修改请求"></a>6.本地拉取远端提出的修改请求</h3><p>(1) <code>git pull</code>：拉取远端代码<br>(2)  查看并判断是否通过该请求</p>
-<h3 id="7-协作冲突"><a href="#7-协作冲突" class="headerlink" title="7.协作冲突"></a>7.协作冲突</h3><p>(1) <code>git pull</code>：拉取远端文件<br>(2)  修改合并<br>(3) <code>git add</code><br>(4) <code>git commit -m &quot;注释内容&quot;</code></p>
-<h2 id="GitFlow工作流"><a href="#GitFlow工作流" class="headerlink" title="GitFlow工作流"></a>GitFlow工作流</h2><ul>
-<li>master ：主干分支</li>
-<li>develop ：开发分支</li>
-<li>hotfix ：bug修理分支</li>
-<li>release ：发布版本分支</li>
-<li>feature ：功能分支</li>
-</ul>
-<p><img src="/img/Git_01.png" alt=""></p>
-<hr>
-<h2 id="Git图谱"><a href="#Git图谱" class="headerlink" title="Git图谱"></a>Git图谱</h2><p><img src="/img/Git_02.png" alt=""></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Stream API</title>
-    <url>/2020/05/04/Stream%20API/</url>
-    <content><![CDATA[<h2 id="Stream简介"><a href="#Stream简介" class="headerlink" title="Stream简介"></a>Stream简介</h2><blockquote>
-<p><strong>Stream API 是用来处理数据，处理集合等容器中的数据，处理操作有：查询、筛选、删除、过滤、统计、映射等。</strong><br><strong>希望能够用类似于SQL语法的形式对Java内存中的数据进行处理。（SQL是对数据库中的数据进行处理）</strong></p>
-</blockquote>
-<a id="more"></a>
-<blockquote>
-<p><strong>Stream本身不负责储存数据，储存数据是用集合、数组等数据结构。</strong><br><strong>Stream只负责对数据进行加工、处理。</strong> </p>
-</blockquote>
-<h2 id="Stream的特点"><a href="#Stream的特点" class="headerlink" title="Stream的特点"></a>Stream的特点</h2><blockquote>
-<ol>
-<li>Stream本身不负责储存数据，储存数据是用集合、数组等数据结构。</li>
-<li>Stream是不可变的，一旦修改，就会产生新的Stream对象。</li>
-<li>Stream操作是一个延迟操作，所有的操作都必须延迟到终结操作时一起处理。</li>
-</ol>
-</blockquote>
-<h2 id="Stream的操作分为三步"><a href="#Stream的操作分为三步" class="headerlink" title="Stream的操作分为三步"></a>Stream的操作分为三步</h2><blockquote>
-<ol>
-<li>创建Stream：告知Stream数据的来源是哪里？</li>
-<li>加工处理：这个过程可以有多步 （0~n）</li>
-<li>终结操作：收集结果（一旦终结就不能再加工了，如果要加工需重新创建Stream）</li>
-</ol>
-</blockquote>
-<h2 id="Stream接口"><a href="#Stream接口" class="headerlink" title="Stream接口"></a>Stream接口</h2><blockquote>
-<p>实现类</p>
-<ol>
-<li>IntStream</li>
-<li>DoubleStream</li>
-<li>LongStream</li>
-</ol>
-</blockquote>
-<h3 id="一、创建Stream"><a href="#一、创建Stream" class="headerlink" title="一、创建Stream"></a>一、创建Stream</h3><ol>
-<li>通过集合创建：集合对象.stream</li>
-<li>通过数组工具类Arrays：Arrays.stream(数组对象)</li>
-<li>Stream接口的静态方法（of方法），产生一个有限流：<br> Stream.of(···)：<code>Stream.of(1,2,3,4,5,6)</code></li>
-<li>Stream接口的静态方法（generate方法），产生一个无限流：<br> (1)Stream.generate(Lambda表达式)：<code>Stream.generate(Math::random)</code><br> (2)Stream.iterate(起始条件， Lambda表达式)：<code>Stream.iterate(1, num -&gt; num += 2)</code></li>
-</ol>
-<h3 id="二、中间加工操作"><a href="#二、中间加工操作" class="headerlink" title="二、中间加工操作"></a>二、中间加工操作</h3><ol>
-<li>filter(Lambda表达式)：过滤（lambda为过滤条件）</li>
-<li>distinct()：去重</li>
-<li>limit(long maxSize)：取有限的几个</li>
-<li>skip (long n)：跳过n个</li>
-<li>peek(Lambda表达式)：接收lambda表达式，对流中的每一个数据进行Lambda体操作</li>
-<li>sorted()：排序，按照自然排序<br> sorted(Comparator com)：排序，按照定制排序</li>
-<li>map(Function f)：接收lambda表达式，对流中的每一个数据进行Lambda体操作，返回新的数据构成新的流<br> flatMap(Function f) <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String[] arr = &#123;<span class="string">"hello"</span>, <span class="string">"world"</span>, <span class="string">"java"</span>&#125;;</span><br><span class="line">Stream&lt;String&gt; flatMap = Arrays.Stream(arr).flatMap(t -&gt; Stream.of(t.split(<span class="string">"|"</span>)));</span><br><span class="line">flatMap.forEach(System.out::println);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="三、终结操作"><a href="#三、终结操作" class="headerlink" title="三、终结操作"></a>三、终结操作</h3><ol>
-<li>void forEach()：遍历流中的数据</li>
-<li>long count()：统计个数</li>
-<li>boolean allMatch(Predicate p)：是否全部满足<strong>条件<br> boolean anyMatch(Predicate p)：是否有一个满足</strong>条件<br> boolean noneMatch(Predicate p)：是否全部都不满足**条件</li>
-<li>Optional<T> findFirst()：返回第一个<br> Optional<T> findAny()：返回任意一个</li>
-<li>Optional<T> max(Comparator c)：找出最大的<br> Optional<T> min(Comparator c)：找出最小的</li>
-<li>T reduce(T iden, BinaryOperator b)：通过反复运算，留下最后一个结果<br> Optional<T> reduce(BinaryOperator b)：通过反复运算，留下最后一个结果</li>
-<li>R collect(Collector c)：把流中的数据最后都收集到一起（Collector接口） <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;Integer&gt; list = Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>).filter(t -&gt; t % <span class="number">2</span> == <span class="number">0</span>).collect(Collectors.toList());</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Golang安装及配置 + GoLand安装与使用</title>
+      <link href="/2020/11/22/GoLand/"/>
+      <url>/2020/11/22/GoLand/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Golang安装及配置"><a href="#Golang安装及配置" class="headerlink" title="Golang安装及配置"></a>Golang安装及配置</h2><blockquote><ul><li>go 语言支持以下系统：</li><li>Linux</li><li>Mac OS X（也称为 Darwin）</li><li>Windows</li><li>FreeBSD</li></ul></blockquote><a id="more"></a><p><strong>本文将介绍windows下的安装和使用教程</strong></p><ol><li><p>Golang下载地址</p><blockquote><ul><li><a href="https://studygolang.com/dl" target="_blank" rel="noopener">https://studygolang.com/dl</a></li><li><a href="https://golang.google.cn/dl/" target="_blank" rel="noopener">https://golang.google.cn/dl/</a></li><li><a href="https://golang.org/dl/" target="_blank" rel="noopener">https://golang.org/dl/</a></li></ul></blockquote></li><li><p>步骤</p><blockquote><ul><li>找到下载的版本<br><img src="/img/GoLand/GoLand_01.png" alt=""></li></ul></blockquote></li><li><p>将压缩包解压</p><blockquote><p><img src="/img/GoLand/GoLand_02.png" alt=""></p></blockquote></li><li><p>配置环境</p><blockquote><ul><li><p>GOROOT</p><ul><li>这个是配置你下载的go文件，这个文件放在哪个地方就copy它的路径</li><li>之后找到控制面板 – (右上角类别小图标) – 系统 – 高级系统设置 – 高级 – 环境变量 – 找到系统变量 – 新建GOROOT – copy路径</li><li>或者直接此电脑右键属性 - 找到高级设置 – 环境变量 – 新建即可<br><img src="/img/GoLand/GoLand_03.png" alt=""></li></ul></li><li><p>GOPATH</p><ul><li>现在大多数都使用了 <code>go mod</code> 可以不用配置 GOPATH</li><li>在系统变量中新建GOPATH，存放的是你的工作目录，就是你写的程序在哪个盘哪个文件下</li></ul></li><li><p>PATH</p><ul><li>配置bin目录<br><img src="/img/GoLand/GoLand_04.png" alt=""></li></ul></li></ul></blockquote></li><li><p>测试</p><blockquote><ul><li>go env           – go环境的查看</li><li>go version     – 查看go版本</li></ul></blockquote></li></ol><p>能显示版本号则说明配置成功。</p><h2 id="GoLand安装与使用"><a href="#GoLand安装与使用" class="headerlink" title="GoLand安装与使用"></a>GoLand安装与使用</h2><ol><li><p>安装一直next就行了</p></li><li><p>新建一个项目<br><img src="/img/GoLand/GoLand_05.png" alt=""><br><img src="/img/GoLand/GoLand_06.png" alt=""></p></li><li><p>新建一个文件写入以下代码</p><blockquote><ul><li>点击左侧绿色三角形运行<br><img src="/img/GoLand/GoLand_07.png" alt=""></li><li>若输出以下语句，恭喜你成功打开了Golang的大门。<br><img src="/img/GoLand/GoLand_08.png" alt=""></li></ul></blockquote></li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git</title>
+      <link href="/2020/05/12/Git/"/>
+      <url>/2020/05/12/Git/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Git的基本操作"><a href="#Git的基本操作" class="headerlink" title="Git的基本操作"></a>Git的基本操作</h2><a id="more"></a><h3 id="1-创建版本库"><a href="#1-创建版本库" class="headerlink" title="1.创建版本库"></a>1.创建版本库</h3><ul><li><code>git init</code></li></ul><h3 id="2-新建文件"><a href="#2-新建文件" class="headerlink" title="2.新建文件"></a>2.新建文件</h3><ul><li><code>vim 文件名.文件类型</code>：新建文件并进入文件（例：<code>vim first.txt</code>）</li><li><code>alt</code>+<code>i</code>：进入文件编辑模式</li><li><code>esc</code>+<code>:wq</code>：退出编辑模式并保存文件</li></ul><h3 id="3-提交文件"><a href="#3-提交文件" class="headerlink" title="3.提交文件"></a>3.提交文件</h3><ul><li><code>git status</code>：查看文件状态</li><li><code>git add 文件名</code>：将文件添加到暂存区</li><li><code>git commit -m &quot;注释内容&quot;</code>：提交文件到本地库（带注释）</li></ul><h3 id="4-查看文件提交记录"><a href="#4-查看文件提交记录" class="headerlink" title="4.查看文件提交记录"></a>4.查看文件提交记录</h3><ul><li><code>git log 文件名</code>：查看历史记录</li><li><code>git log --pretty=oneline 文件名</code>：简易信息查看</li></ul><h3 id="5-回退历史"><a href="#5-回退历史" class="headerlink" title="5.回退历史"></a>5.回退历史</h3><ul><li><code>git reset --hard HEAD^</code>：回退到上次提交</li><li><code>git reset --hard HEAD~n</code>：回退n次操作</li></ul><h3 id="6-版本穿越"><a href="#6-版本穿越" class="headerlink" title="6.版本穿越"></a>6.版本穿越</h3><ul><li><code>git reflog 文件名</code>：查看历史记录的版本号</li><li><code>git reset --hard 版本号</code>：执行操作</li></ul><h3 id="7-还原文件"><a href="#7-还原文件" class="headerlink" title="7.还原文件"></a>7.还原文件</h3><ul><li><code>git checkout -- 文件名</code>：还原文件</li></ul><h3 id="8-删除某个文件"><a href="#8-删除某个文件" class="headerlink" title="8.删除某个文件"></a>8.删除某个文件</h3><ul><li><code>rm -rf 文件名</code>：删除文件（此时未真正删除）</li><li><code>git add 文件名</code>：提交</li><li><code>git commit -m &quot;注释内容&quot;</code></li></ul><h2 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h2><h3 id="1-创建分支"><a href="#1-创建分支" class="headerlink" title="1.创建分支"></a>1.创建分支</h3><ul><li><code>git branch 分支名</code>：创建分支</li><li><code>git branch -v</code>：查看分支</li></ul><h3 id="2-切换分支"><a href="#2-切换分支" class="headerlink" title="2.切换分支"></a>2.切换分支</h3><ul><li><code>git checkout 分支名</code>：切换分支</li><li><code>git checkout -b 分支名</code>：一步完成创建并切换分支</li></ul><h3 id="3-合并分支"><a href="#3-合并分支" class="headerlink" title="3.合并分支"></a>3.合并分支</h3><ul><li><code>git checkout master</code>：先切换到主分支</li><li><code>git merge 副分支名</code>：合并分支</li></ul><h3 id="4-删除分支"><a href="#4-删除分支" class="headerlink" title="4.删除分支"></a>4.删除分支</h3><ul><li><code>git checkout master</code>：先切换到主分支</li><li><code>git branch -D 分支名</code>：删除副分支</li></ul><h3 id="5-解决冲突"><a href="#5-解决冲突" class="headerlink" title="5.解决冲突"></a>5.解决冲突</h3><ul><li><code>git diff</code>：找到发生冲突的文件及冲突的内容</li><li><code>git add 文件名</code>+<code>git commit -m &quot;注释内容&quot;</code>：修改冲突文件内容后提交（后缀MERGING消失，说明冲突解决）</li></ul><h2 id="远程Git操作"><a href="#远程Git操作" class="headerlink" title="远程Git操作"></a>远程Git操作</h2><h3 id="1-搭建代码库"><a href="#1-搭建代码库" class="headerlink" title="1.搭建代码库"></a>1.搭建代码库</h3><p>(1) <code>git init</code><br>(2) <code>git config</code></p><h3 id="2-提交代码"><a href="#2-提交代码" class="headerlink" title="2.提交代码"></a>2.提交代码</h3><p>(1) <code>git add 文件名</code><br>(2) <code>git commit -m &quot;注释内容&quot;</code></p><h3 id="3-GitHub准备工作"><a href="#3-GitHub准备工作" class="headerlink" title="3.GitHub准备工作"></a>3.GitHub准备工作</h3><p>(1)  准备GitHub账号<br>(2)  在GitHub搭建项目</p><h3 id="4-推送代码到远端"><a href="#4-推送代码到远端" class="headerlink" title="4.推送代码到远端"></a>4.推送代码到远端</h3><p>(1) <code>git remote add origin &lt;url&gt;</code><br>(2) <code>git push origin master</code></p><h3 id="5-远端操作"><a href="#5-远端操作" class="headerlink" title="5.远端操作"></a>5.远端操作</h3><p>(1) <code>git clone &lt;url&gt;</code>：克隆到远端本地库<br>(2) <code>git add 文件名</code><br>(3) <code>git commit -m &quot;注释内容&quot;</code><br>(4) <code>git push origin master</code></p><h3 id="6-本地拉取远端提出的修改请求"><a href="#6-本地拉取远端提出的修改请求" class="headerlink" title="6.本地拉取远端提出的修改请求"></a>6.本地拉取远端提出的修改请求</h3><p>(1) <code>git pull</code>：拉取远端代码<br>(2)  查看并判断是否通过该请求</p><h3 id="7-协作冲突"><a href="#7-协作冲突" class="headerlink" title="7.协作冲突"></a>7.协作冲突</h3><p>(1) <code>git pull</code>：拉取远端文件<br>(2)  修改合并<br>(3) <code>git add</code><br>(4) <code>git commit -m &quot;注释内容&quot;</code></p><h2 id="GitFlow工作流"><a href="#GitFlow工作流" class="headerlink" title="GitFlow工作流"></a>GitFlow工作流</h2><ul><li>master ：主干分支</li><li>develop ：开发分支</li><li>hotfix ：bug修理分支</li><li>release ：发布版本分支</li><li>feature ：功能分支</li></ul><p><img src="/img/Git_01.png" alt=""></p><hr><h2 id="Git图谱"><a href="#Git图谱" class="headerlink" title="Git图谱"></a>Git图谱</h2><p><img src="/img/Git_02.png" alt=""></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Stream API</title>
+      <link href="/2020/05/04/Stream%20API/"/>
+      <url>/2020/05/04/Stream%20API/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Stream简介"><a href="#Stream简介" class="headerlink" title="Stream简介"></a>Stream简介</h2><blockquote><p><strong>Stream API 是用来处理数据，处理集合等容器中的数据，处理操作有：查询、筛选、删除、过滤、统计、映射等。</strong><br><strong>希望能够用类似于SQL语法的形式对Java内存中的数据进行处理。（SQL是对数据库中的数据进行处理）</strong></p></blockquote><a id="more"></a><blockquote><p><strong>Stream本身不负责储存数据，储存数据是用集合、数组等数据结构。</strong><br><strong>Stream只负责对数据进行加工、处理。</strong> </p></blockquote><h2 id="Stream的特点"><a href="#Stream的特点" class="headerlink" title="Stream的特点"></a>Stream的特点</h2><blockquote><ol><li>Stream本身不负责储存数据，储存数据是用集合、数组等数据结构。</li><li>Stream是不可变的，一旦修改，就会产生新的Stream对象。</li><li>Stream操作是一个延迟操作，所有的操作都必须延迟到终结操作时一起处理。</li></ol></blockquote><h2 id="Stream的操作分为三步"><a href="#Stream的操作分为三步" class="headerlink" title="Stream的操作分为三步"></a>Stream的操作分为三步</h2><blockquote><ol><li>创建Stream：告知Stream数据的来源是哪里？</li><li>加工处理：这个过程可以有多步 （0~n）</li><li>终结操作：收集结果（一旦终结就不能再加工了，如果要加工需重新创建Stream）</li></ol></blockquote><h2 id="Stream接口"><a href="#Stream接口" class="headerlink" title="Stream接口"></a>Stream接口</h2><blockquote><p>实现类</p><ol><li>IntStream</li><li>DoubleStream</li><li>LongStream</li></ol></blockquote><h3 id="一、创建Stream"><a href="#一、创建Stream" class="headerlink" title="一、创建Stream"></a>一、创建Stream</h3><ol><li>通过集合创建：集合对象.stream</li><li>通过数组工具类Arrays：Arrays.stream(数组对象)</li><li>Stream接口的静态方法（of方法），产生一个有限流：<br> Stream.of(···)：<code>Stream.of(1,2,3,4,5,6)</code></li><li>Stream接口的静态方法（generate方法），产生一个无限流：<br> (1)Stream.generate(Lambda表达式)：<code>Stream.generate(Math::random)</code><br> (2)Stream.iterate(起始条件， Lambda表达式)：<code>Stream.iterate(1, num -&gt; num += 2)</code></li></ol><h3 id="二、中间加工操作"><a href="#二、中间加工操作" class="headerlink" title="二、中间加工操作"></a>二、中间加工操作</h3><ol><li>filter(Lambda表达式)：过滤（lambda为过滤条件）</li><li>distinct()：去重</li><li>limit(long maxSize)：取有限的几个</li><li>skip (long n)：跳过n个</li><li>peek(Lambda表达式)：接收lambda表达式，对流中的每一个数据进行Lambda体操作</li><li>sorted()：排序，按照自然排序<br> sorted(Comparator com)：排序，按照定制排序</li><li>map(Function f)：接收lambda表达式，对流中的每一个数据进行Lambda体操作，返回新的数据构成新的流<br> flatMap(Function f) <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String[] arr = &#123;<span class="string">"hello"</span>, <span class="string">"world"</span>, <span class="string">"java"</span>&#125;;</span><br><span class="line">Stream&lt;String&gt; flatMap = Arrays.Stream(arr).flatMap(t -&gt; Stream.of(t.split(<span class="string">"|"</span>)));</span><br><span class="line">flatMap.forEach(System.out::println);</span><br></pre></td></tr></table></figure></li></ol><h3 id="三、终结操作"><a href="#三、终结操作" class="headerlink" title="三、终结操作"></a>三、终结操作</h3><ol><li>void forEach()：遍历流中的数据</li><li>long count()：统计个数</li><li>boolean allMatch(Predicate p)：是否全部满足<strong>条件<br> boolean anyMatch(Predicate p)：是否有一个满足</strong>条件<br> boolean noneMatch(Predicate p)：是否全部都不满足**条件</li><li>Optional<T> findFirst()：返回第一个<br> Optional<T> findAny()：返回任意一个</li><li>Optional<T> max(Comparator c)：找出最大的<br> Optional<T> min(Comparator c)：找出最小的</li><li>T reduce(T iden, BinaryOperator b)：通过反复运算，留下最后一个结果<br> Optional<T> reduce(BinaryOperator b)：通过反复运算，留下最后一个结果</li><li>R collect(Collector c)：把流中的数据最后都收集到一起（Collector接口） <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list = Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>).filter(t -&gt; t % <span class="number">2</span> == <span class="number">0</span>).collect(Collectors.toList());</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
       <categories>
-        <category>Java API</category>
+          
+          <category> Java API </category>
+          
       </categories>
-      <tags>
-        <tag>Java</tag>
-      </tags>
-  </entry>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
